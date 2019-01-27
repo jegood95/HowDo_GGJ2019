@@ -16,34 +16,15 @@ AGameManager::AGameManager()
 void AGameManager::BeginPlay()
 {
 	Super::BeginPlay();
-	TArray<AActor*> foundDevices;
+	
 	TArray<AActor*> foundPanels;
-	// get Devices in world
-	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ADevice::StaticClass(), foundDevices);
-	for (AActor* Device : foundDevices)
-	{
-		Devices.Add(static_cast<ADevice*>(Device));
-	}
-
 	// get panels in world
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), APanel::StaticClass(), foundPanels);
 	for (AActor* Panel : foundPanels)
 	{
+		// get panel from world
 		Panels.Add(static_cast<APanel*>(Panel));
-	}
-
-	// assign random modules to panels
-	// TODO
-	
-	int32 index = 0;
-	// for each device's panels, map its Device index
-	for(ADevice* Device : Devices)
-	{
-		for (APanel* Panel : Device->Panels)
-		{
-			Panel->DeviceIndex = index;
-		}
-		++index;
+		// TODO: finish
 	}
 }
 
@@ -54,10 +35,8 @@ void AGameManager::Tick(float DeltaTime)
 	for (APanel* Panel : Panels)
 	{
 		// check for a completed panel
-		if (Panel->IsAllSlotsPassed())
-			// update total passing panels in its associated Device
-			Devices[Panel->DeviceIndex]->PassPanel();
+		/*if (Panel->IsAllSlotsPassed())*/
+		// TODO report that a panel has passed
 	}
-
 }
 

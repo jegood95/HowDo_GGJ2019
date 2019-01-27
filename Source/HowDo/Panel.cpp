@@ -55,8 +55,8 @@ bool APanel::AddModule(AModule* Module)
 	return false;
 }
 
-bool APanel::IsAllSlotsPassed()
-{
-	return PassedSlots == MaxSlots;
-}
+//bool APanel::IsAllSlotsPassed()
+//{
+//	return PassedSlots == MaxSlots;
+//}
 
