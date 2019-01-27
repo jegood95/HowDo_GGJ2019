@@ -6,6 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Panel.h"
 #include "Device.h"
+#include "ModuleTypeContainer.h"
 #include "GameManager.generated.h"
 
 UCLASS()
@@ -21,6 +22,9 @@ public:
 	TArray<APanel*> Panels;
 	// devices in world
 	TArray<ADevice*> Devices;
+	// container of module types
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Properties")
+	UModuleTypeContainer* ModuleContainer;
 
 protected:
 	// Called when the game starts or when spawned

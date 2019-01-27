@@ -52,5 +52,6 @@ public:
 	bool LoadSlots(TArray<AModule*> Modules);
 
 	// return if all slots have passed
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "Panel")
 	bool IsAllSlotsPassed();
 };
